@@ -17,6 +17,10 @@ dependencies:
   flutter_screenutil: ^5.9.3
   gap: ^3.0.1
   flutter_svg: ^2.0.10+1
+  get: ^4.6.6
+  keyboard_dismisser: ^3.0.0
+  rmdev_widgets:
+    path: /Users/Rychid/Documents/projects/personal/mobile/packages/rmdev_widgets
 
 dev_dependencies:
   flutter_test:
