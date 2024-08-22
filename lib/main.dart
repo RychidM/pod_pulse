@@ -1,57 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
-import 'package:gap/gap.dart';
-import 'package:pod_pulse/app/shared/widgets/main_view_layout.dart';
+import 'package:get/route_manager.dart';
+import 'package:keyboard_dismisser/keyboard_dismisser.dart';
+import 'package:pod_pulse/app/routes/app_pages.dart';
+import 'package:pod_pulse/app/utils/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const PodPulse());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PodPulse extends StatelessWidget {
+  const PodPulse({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(1440, 1024),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFFFF3887), brightness: Brightness.dark),
-          useMaterial3: true,
+    return KeyboardDismisser(
+      gestures: const [
+        GestureType.onTap,
+        GestureType.onPanUpdateDownDirection,
+      ],
+      child: LayoutBuilder(
+        builder: (context, constraints) => ScreenUtilInit(
+          designSize: constraints.maxWidth <= 450
+              ? const Size(430, 932)
+              : const Size(1440, 1024),
+          minTextAdapt: true,
+          ensureScreenSize: true,
+          useInheritedMediaQuery: true,
+          builder: (context, _) => GetMaterialApp(
+            title: 'PodPulse',
+            debugShowCheckedModeBanner: false,
+            initialRoute: AppPages.initialPage,
+            getPages: AppPages.routes,
+            theme: PodPulseTheme.pulseTheme,
+            defaultTransition: Transition.rightToLeftWithFade,
+          ),
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: const MainViewLayout());
   }
 }
