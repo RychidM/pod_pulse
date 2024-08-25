@@ -2,6 +2,14 @@
 class Assets {
   Assets._();
 
+  static const String animationsWaveAnimation = 'assets/animations/wave_animation.json';
+  static const String audiosAlloy = 'assets/audios/alloy.mp3';
+  static const String audiosEcho = 'assets/audios/echo.mp3';
+  static const String audiosFable = 'assets/audios/fable.mp3';
+  static const String audiosNova = 'assets/audios/nova.mp3';
+  static const String audiosOnyx = 'assets/audios/onyx.mp3';
+  static const String audiosShimmer = 'assets/audios/shimmer.mp3';
+  static const String iconsBell = 'assets/icons/bell.svg';
   static const String iconsClock = 'assets/icons/clock.svg';
   static const String iconsDiscover = 'assets/icons/discover.svg';
   static const String iconsEdit = 'assets/icons/edit.svg';
@@ -17,9 +25,12 @@ class Assets {
   static const String iconsSearch = 'assets/icons/search.svg';
   static const String iconsShuffle = 'assets/icons/shuffle.svg';
   static const String iconsSiderbar = 'assets/icons/Siderbar.svg';
+  static const String iconsStar = 'assets/icons/Star.svg';
+  static const String iconsStarFilled = 'assets/icons/Star_filled.svg';
   static const String iconsTrash = 'assets/icons/trash.svg';
   static const String iconsUpload = 'assets/icons/upload.svg';
   static const String iconsUser = 'assets/icons/user.svg';
+  static const String iconsUsers = 'assets/icons/users.svg';
   static const String iconsVerified = 'assets/icons/verified.svg';
   static const String iconsVolume = 'assets/icons/volume.svg';
   static const String imagesAlexa = 'assets/images/alexa.png';
